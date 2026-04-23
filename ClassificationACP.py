@@ -1,0 +1,20 @@
+from numpy import where
+from collections import Counter
+from sklearn.datasets import make_blobs
+from matplotlib import pyplot
+
+x, y =make_blobs(n_samples=10000, centers=4, random_state=1)
+
+print(x.shape, y.shape)
+
+counter=Counter(y)
+print(counter)
+
+for i in range(10):
+    print(x[i], y[i])
+
+for label, _ in counter.items():
+    row_ix=where(y==label)[0]
+    pyplot.scatter(x[row_ix, 0], x[row_ix, 1], label=str(label))
+pyplot.legend()
+pyplot.show()
