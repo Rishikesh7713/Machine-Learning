@@ -32,4 +32,5 @@ plt.xticks(())
 plt.yticks(())
 
 plt.show()
-logreg.score(x, y)
+
+print(logreg.score(x, y))
